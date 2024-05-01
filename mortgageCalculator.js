@@ -20,11 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const monthlyPrincipal = loanAmount / totalPayments;
         const monthlyInterest = totalInterest / totalPayments;
 
-        return { totalHousePrice, loanAmount, downPayment, totalInterest, monthlyPrincipal, monthlyInterest };
+        return { loanAmount, downPayment, totalInterest, monthlyPayment, monthlyPrincipal, monthlyInterest };
     }
 
     function displayLoanDetails(event) {
-        event.preventDefault();
+        event.preventDefault(); // Prevent form submission from reloading the page
 
         const monthlyPayment = parseFloat(document.getElementById('monthlyPayment').value);
         const interestRate = parseFloat(document.getElementById('interestRate').value) / 100;
@@ -48,8 +48,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const resultsDiv = document.getElementById('results');
         resultsDiv.innerHTML = '';
 
+        const baseData = loanData[0]; // 30-year data for comparison
+
         loanData.forEach((data, index) => {
-            const { loanAmount, downPayment, totalInterest, monthlyPrincipal, monthlyInterest } = data;
+            const { loanAmount, downPayment, totalInterest, monthlyPayment, monthlyPrincipal, monthlyInterest } = data;
+            const tenureReduction = 30 - loanTerms[index];
+            const interestSavings = baseData.totalInterest - totalInterest;
+            const paymentIncrease = monthlyPayment - baseData.monthlyPayment;
 
             const cardHtml = `
             <div class="col-md-4">
@@ -65,6 +70,12 @@ document.addEventListener('DOMContentLoaded', () => {
                             <li>Principal: $${monthlyPrincipal.toFixed(2)}</li>
                             <li>Interest: $${monthlyInterest.toFixed(2)}</li>
                         </ul>
+                        <p class="card-text">
+                            Your monthly payment has increased by $${paymentIncrease.toFixed(2)} compared to the 30-year loan.
+                        </p>
+                        <p class="card-text">
+                            This option will save you $${interestSavings.toFixed(2)} in interest and complete your loan ${tenureReduction} years earlier.
+                        </p>
                     </div>
                 </div>
             </div>
