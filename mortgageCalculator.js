@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function displayLoanDetails(event) {
-        event.preventDefault(); // Prevent form submission from reloading the page
+        event.preventDefault();
 
         const monthlyPayment = parseFloat(document.getElementById('monthlyPayment').value);
         const interestRate = parseFloat(document.getElementById('interestRate').value) / 100;
@@ -57,25 +57,47 @@ document.addEventListener('DOMContentLoaded', () => {
             const paymentIncrease = monthlyPayment - baseData.monthlyPayment;
 
             const cardHtml = `
-            <div class="col-md-4">
-                <div class="card">
+            <div class="col-md-12">
+                <div class="card border-light shadow-sm mb-4">
                     <div class="card-body">
-                        <h5 class="card-title">${loanTerms[index]} Years Loan</h5>
-                        <p class="card-text">Total House Price: $${totalHousePrice.toFixed(2)}</p>
-                        <p class="card-text">Loan Amount: $${loanAmount.toFixed(2)}</p>
-                        <p class="card-text">Down Payment: $${downPayment.toFixed(2)}</p>
-                        <p class="card-text">Total Interest: $${totalInterest.toFixed(2)}</p>
-                        <p class="card-text">Monthly Payment Breakdown:</p>
-                        <ul class="list-unstyled">
-                            <li>Principal: $${monthlyPrincipal.toFixed(2)}</li>
-                            <li>Interest: $${monthlyInterest.toFixed(2)}</li>
-                        </ul>
-                        <p class="card-text">
-                            Your monthly payment has increased by $${paymentIncrease.toFixed(2)} compared to the 30-year loan.
-                        </p>
-                        <p class="card-text">
-                            This option will save you $${interestSavings.toFixed(2)} in interest and complete your loan ${tenureReduction} years earlier.
-                        </p>
+                        <h5 class="card-title text-center">${loanTerms[index]} Years Loan</h5>
+                        <div class="bg-light p-2 mb-3">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <p class="card-text">
+                                        <strong>Total House Price:</strong> $${totalHousePrice.toFixed(2)}
+                                    </p>
+                                    <p class="card-text">
+                                        <strong>Loan Amount:</strong> $${loanAmount.toFixed(2)}
+                                    </p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p class="card-text">
+                                        <strong>Down Payment:</strong> $${downPayment.toFixed(2)}
+                                    </p>
+                                    <p class="card-text">
+                                        <strong>Total Interest:</strong> $${totalInterest.toFixed(2)}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="highlights">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <p class="text-success">
+                                        <i class="fas fa-arrow-up"></i> Monthly Payment Increase: $${paymentIncrease.toFixed(2)}
+                                    </p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p class="text-primary">
+                                        <strong>Savings:</strong> $${interestSavings.toFixed(2)}
+                                    </p>
+                                    <p class="text-primary">
+                                        <strong>Tenure Reduction:</strong> ${tenureReduction} years
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
