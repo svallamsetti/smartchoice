@@ -42,68 +42,112 @@ document.addEventListener('DOMContentLoaded', () => {
         let pmiDetails = '';
         if (pmi > 0) {
             pmiDetails = `
-                <div>
-                    <p class="text-sm font-semibold text-gray-700">PMI:</p>
-                    <p class="text-lg font-bold text-gray-900">$${pmi.toFixed(2)} per month</p>
-                </div>
+            <div class="mt-4">
+    <div class="border-l-4 border-red-400 pl-2">
+        <div class="flex items-center gap-2">
+            <i class="fas fa-shield-alt text-red-500"></i>
+            <p class="text-sm font-semibold text-gray-700">PMI:</p>
+            <p class="text-lg font-bold text-gray-900">$${pmi.toFixed(2)}</p>
+        </div>
+    </div>
+</div>
+
+        
             `;
         }
 
         return `
-            <div class="w-full md:w-1/2 p-4">
-                <div class="bg-white border border-gray-300 rounded-lg shadow-sm mb-2">
-                    <div class="p-6">
-                        <h5 class="text-center text-lg font-semibold">${loanTerms[index]} Years Loan</h5>
-                        <div class="bg-gray-100 p-4 rounded-lg mt-4">
-                            <div class="grid grid-cols-2 gap-4">
-                                <div>
-                                    <p class="text-sm font-semibold text-gray-700">Total House Price:</p>
-                                    <p class="text-lg font-bold text-gray-900">$${totalHousePrice.toFixed(2)}</p>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-semibold text-gray-700">Loan Amount:</p>
-                                    <p class="text-lg font-bold text-gray-900">$${loanAmount.toFixed(2)}</p>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-semibold text-gray-700">Down Payment:</p>
-                                    <p class="text-lg font-bold text-gray-900">$${downPayment.toFixed(2)}</p>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-semibold text-gray-700">Total Interest:</p>
-                                    <p class="text-lg font-bold text-gray-900">$${totalInterest.toFixed(2)}</p>
-                                </div>
-                                ${pmiDetails}
+        <div class="w-full md:w-1/2 p-1">
+    <div class="bg-white border border-gray-200 rounded-lg shadow-lg mb-2 overflow-hidden">
+        <div class="p-4 bg-gradient-to-br from-purple-500 to-purple-400 text-white">
+            <!-- Loan Details Header -->
+            <h5 class="text-center text-lg font-bold mb-3">${loanTerms[index]} Years Loan</h5>
+        </div>
+        <div class="p-4">
+            <!-- Financial Summary with Simplified Table -->
+            <div class="mt-2">
+                <table class="w-full text-gray-700 text-sm">
+                    <tr>
+                        <td class="py-2">
+                            <i class="fas fa-home text-blue-500 mr-1"></i>
+                            Home Price
+                        </td>
+                        <td class="text-lg font-bold text-right">$${totalHousePrice.toFixed(2)}</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2">
+                            <i class="fas fa-sack-dollar text-green-500 mr-1"></i>
+                            Loan Amount
+                        </td>
+                        <td class="text-lg font-bold text-right">$${loanAmount.toFixed(2)}</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2">
+                            <i class="fas fa-wallet text-orange-500 mr-1"></i>
+                            Down Payment
+                        </td>
+                        <td class="text-lg font-bold text-right">$${downPayment.toFixed(2)}</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2">
+                            <i class="fas fa-percentage text-red-500 mr-1"></i>
+                            Total Interest
+                        </td>
+                        <td class="text-lg font-bold text-right">$${totalInterest.toFixed(2)}</td>
+                    </tr>
+                    <tr><td class="text-lg font-bold text-right">${pmiDetails}</td></tr>
+                </table>
+            </div>
+
+            <div class="mt-3 border-t border-gray-300 pt-3">
+                <!-- Financial Highlights -->
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="flex flex-col items-center text-center">
+                        <i class="fas fa-dollar-sign text-green-500 mb-1"></i>
+                        <span class="text-sm font-semibold text-gray-700">Interest Savings</span>
+                        <span class="inline-flex items-center rounded-md bg-green-100 px-2 py-1 text-xs font-bold text-black">$${interestSavings.toFixed(2)}</span>
+                    </div>
+
+                    <div class="flex flex-col items-center text-center">
+                        <i class="fas fa-arrow-up text-red-500 mb-1"></i>
+                        <span class="text-sm font-semibold text-gray-700">Monthly Payment Increase</span>
+                        <span class="inline-flex items-center rounded-md bg-red-100 px-2 py-1 text-xs font-bold text-black">$${paymentIncrease.toFixed(2)}</span>
+                    </div>
+                </div>
+
+                <!-- Monthly Payment Breakdown -->
+                <div class="mt-3">
+                    <p class="text-sm font-semibold text-gray-700">Monthly Payment Breakdown:</p>
+                    <div class="bg-white shadow-md rounded-lg p-3">
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="border-l-4 border-blue-500 pl-2">
+                                <p class="text-sm font-semibold text-gray-700">Principal:</p>
+                                <p class="text-lg font-bold text-gray-900">$${monthlyPrincipal.toFixed(2)}</p>
                             </div>
-                        </div>
 
-                        <div class="mt-4 border-t-2 border-gray-300 pt-4">
-                            <div class="grid grid-cols-2 gap-4">
-                                <div class="flex items-center text-primary">
-                                    <i class="fas fa-hand-holding-usd mr-2"></i>
-                                    <span class="inline-flex items-center rounded-md ${savingsColorClass} px-2 py-1 text-xs font-bold text-black">$${interestSavings.toFixed(2)}</span>
-                                </div>
-
-                                <div class="flex items-center text-primary">
-                                    <i class="fas fa-long-arrow-alt-up text-red-500"></i>
-                                    <span class="inline-flex items-center rounded-md ${monthlyIncreaseColorClass} px-2 py-1 text-xs font-bold text-black">$${paymentIncrease.toFixed(2)}</span>
-                                </div>
-
-                                <div class="col-span-2">
-                                    <p class="text-primary mt-2"><strong>Tenure Reduction:</strong> ${tenureReduction} years</p>
-                                </div>
-                            </div>
-
-                            <!-- Monthly Payment Breakdown -->
-                            <div class="mt-4">
-                                <p class="text-sm font-semibold text-gray-700">Monthly Payment Breakdown:</p>
-                                <p class="text-lg font-bold text-gray-900">Principal: $${monthlyPrincipal.toFixed(2)}</p>
-                                <p class="text-lg font-bold text-gray-900">Interest: $${monthlyInterest.toFixed(2)}</p>
+                            <div class="border-l-4 border-red-500 pl-2">
+                                <p class="text-sm font-semibold text-gray-700">Interest:</p>
+                                <p class="text-lg font-bold text-gray-900">$${monthlyInterest.toFixed(2)}</p>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Loan Tenure Reduction -->
+                <div class="flex flex-col items-center text-center mt-3 mb-2">
+                    <i class="fas fa-hourglass-half text-blue-500 mb-1"></i>
+                    <span class="text-sm font-semibold text-gray-700">Loan Tenure Reduction from 30 years</span>
+                    <p class="text-lg font-bold text-gray-900">${tenureReduction} years</p>
+                </div>
             </div>
-        `;
+        </div>
+    </div>
+</div>
+
+    
+    
+
+    `;
     }
 
     function displayLoanDetails(event) {
