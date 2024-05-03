@@ -17,12 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const monthlyInterestRate = interestRate / 12;
         const totalPayments = loanTerm * 12;
 
-        const monthlyPayment = loanAmount * (monthlyInterestRate * (1 + monthlyInterestRate)**totalPayments) / ((1 + monthlyInterestRate)**totalPayments - 1);
+        const monthlyPayment = loanAmount * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, totalPayments)) / (Math.pow(1 + monthlyInterestRate, totalPayments) - 1);
 
         const totalInterest = (monthlyPayment * totalPayments) - loanAmount;
 
-        // Monthly breakdown
-        const monthlyPrincipal = monthlyPayment - (totalInterest / totalPayments);
+        const monthlyPrincipal = loanAmount / totalPayments;
         const monthlyInterest = totalInterest / totalPayments;
 
         // PMI Calculation (if down payment is below 20%)
