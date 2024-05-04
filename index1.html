@@ -2,71 +2,71 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device=1">
-    <title>Mortgage Terms</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"> <!-- Tailwind CSS -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap"> <!-- Google Fonts -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortgage Overview</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pico.css">
+    <style>
+        .container {
+            max-width: 1200px; /* Limiting max width for better control */
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between; /* Space distribution */
+        }
+
+        .card, .calculator {
+            flex: 1 1 300px; /* Flexibility and minimum width */
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .illustration {
+            text-align: center;
+            padding: 20px;
+        }
+
+        img {
+            max-width: 100%; /* Ensuring responsive images */
+            height: auto;
+        }
+    </style>
 </head>
-<body class="bg-gray-100 font-open-sans">
-    <div class="container mx-auto mt-8">
-        <h1 class="text-center text-3xl font-bold text-gray-800 mb-8">Mortgage Terms</h1>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 xl:gap-8">
+<body>
+    <div class="container">
+        <div class="calculator">
+            <div class="illustration">
+                <img src="https://undraw.co/illustrations/svg/paying_online_b1hk.svg" alt="Calculating finances">
+            </div>
+            <p>Mortgage Calculator</p>
+            <!-- Calculator inputs and submit button here -->
+        </div>
+        
+        <!-- Assume 4 cards following a similar structure -->
+        <div class="card">
+            <h2>15-Year Fixed</h2>
+            <p>Details about the 15-year fixed mortgage plan.</p>
+            <!-- More details here -->
+        </div>
 
-            <!-- 30 Year Card -->
-            <section class="flex">
-                <div class="w-full relative text-black overflow-hidden rounded-3xl flex shadow-lg">
-                    <div class="w-full flex md:flex-col bg-white">
-                        <div class="sm:max-w-sm sm:flex-none md:w-auto md:flex-auto flex flex-col items-start relative z-10 p-6 xl:p-8">
-                            <h2 class="text-xl font-semibold mb-2">30-Year Mortgage</h2>
-                            <p class="font-medium text-gray-600 mb-4">A long-term mortgage option offering smaller monthly payments.</p>
-                            <a href="#" class="mt-auto bg-gray-200 hover:bg-gray-300 transition-colors duration-200 rounded-xl font-semibold py-2 px-4 inline-flex">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
+        <div class="card">
+            <h2>30-Year Fixed</h2>
+            <p>Details about the 30-year fixed mortgage plan.</p>
+            <!-- More details here -->
+        </div>
 
-            <!-- 20 Year Card -->
-            <section class="flex">
-                <div class="w-full relative text-black overflow-hidden rounded-3xl flex shadow-lg">
-                    <div class="w-full flex md:flex-col bg-gradient-to-br from-green-300 to-green-200">
-                        <div class="sm:max-w-sm sm:flex-none md:w-auto md:flex-auto flex flex-col items-start relative z-10 p-6 xl:p-8">
-                            <h2 class="text-xl font-semibold mb-2">20-Year Mortgage</h2>
-                            <p class="font-medium text-green-700 mb-4">A mid-term mortgage option balancing monthly payments and duration.</p>
-                            <a href="#" class="mt-auto bg-green-600 bg-opacity-50 hover:bg-opacity-75 transition-colors duration-200 rounded-xl font-semibold py-2 px-4 inline-flex">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
+        <div class="card">
+            <h2>5/1 ARM</h2>
+            <p>Details about the 5/1 Adjustable Rate Mortgage.</p>
+            <!-- More details here -->
+        </div>
 
-            <!-- 15 Year Card -->
-            <section<arrangement>
-                <div class="w-full relative text-black overflow-hidden rounded-3xl flex shadow-lg">
-                    <div class="w-full flex md:flex-col bg-gradient-to-br from-yellow-300 to-yellow-200">
-                        <div class="sm:max-w-sm sm:flex-none md:w-auto md:flex-auto flex flex-col items-start relative z-10 p-6 xl:p-8">
-                            <h2 class="text-xl font-semibold mb-2">15-Year Mortgage</h2>
-                            <p class="font-medium text-amber-700 mb-4">A shorter-term mortgage option with higher monthly payments.</p>
-                            <a href="#" class="mt-auto bg-yellow-500 bg-opacity-50 hover:bg-opacity-75 transition-colors duration-200 rounded-xl font-semibold py-2 px-4 inline-flex">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 10 Year Card -->
-            <section class="flex">
-                <div class="w-full relative text-black overflow-hidden rounded-3xl flex shadow-lg">
-                    <div class="w-full flex md:flex-col bg-gradient-to-br from-red-300 to-red-200">
-                        <div class="sm:max-w-sm sm:flex-none md:w-auto md:flex-auto flex flex-col items-start relative z-10 p-6 xl:p-8">
-                            <h2 class="text-xl font-semibold mb-2">10-Year Mortgage</h2>
-                            <p class="font-medium text-red-700 mb-4">A very short-term mortgage option with higher payments.</p>
-                            <a href="#" class="mt-auto bg-red-600 bg-opacity-50 hover:bg-opacity-75 transition-colors duration-200 rounded-xl font-semibold py-2 px-4 inline-flex">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
+        <div class="card">
+            <h2>10/1 ARM</h2>
+            <p>Details about the 10/1 Adjustable Rate Mortgage.</p>
+            <!-- More details here -->
         </div>
     </div>
 </body>
 </html>
-
-
-

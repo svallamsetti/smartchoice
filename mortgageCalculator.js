@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="flex items-center gap-2">
             <i class="fas fa-shield-alt text-red-500"></i>
             <p class="text-sm font-semibold text-gray-700">PMI:</p>
-            <p class="text-lg font-bold text-gray-900">$${pmi.toFixed(2)}</p>
+            <p class="text-lg font-bold text-gray-900">$${pmi.toFixed()}</p>
         </div>
     </div>
 </div>
@@ -57,9 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         return `
-        <div class="w-full md:w-1/2 p-1">
+        <div class="w-full md:w-1/2 p-2">
     <div class="bg-white border border-gray-200 rounded-lg shadow-lg mb-2 overflow-hidden">
-        <div class="p-4 bg-gradient-to-br from-purple-500 to-purple-400 text-white">
+        <div class="p-2 bg-gradient-to-br from-blue-400 to-purple-500 text-white">
             <!-- Loan Details Header -->
             <h5 class="text-center text-lg font-bold mb-3">${loanTerms[index]} Years Loan</h5>
         </div>
@@ -72,28 +72,28 @@ document.addEventListener('DOMContentLoaded', () => {
                             <i class="fas fa-home text-blue-500 mr-1"></i>
                             Home Price
                         </td>
-                        <td class="text-lg font-bold text-right">$${totalHousePrice.toFixed(2)}</td>
+                        <td class="text-lg font-bold text-right">$${totalHousePrice.toFixed()}</td>
                     </tr>
                     <tr>
                         <td class="py-2">
                             <i class="fas fa-sack-dollar text-green-500 mr-1"></i>
                             Loan Amount
                         </td>
-                        <td class="text-lg font-bold text-right">$${loanAmount.toFixed(2)}</td>
+                        <td class="text-lg font-bold text-right">$${loanAmount.toFixed()}</td>
                     </tr>
                     <tr>
                         <td class="py-2">
                             <i class="fas fa-wallet text-orange-500 mr-1"></i>
                             Down Payment
                         </td>
-                        <td class="text-lg font-bold text-right">$${downPayment.toFixed(2)}</td>
+                        <td class="text-lg font-bold text-right">$${downPayment.toFixed()}</td>
                     </tr>
                     <tr>
                         <td class="py-2">
                             <i class="fas fa-percentage text-red-500 mr-1"></i>
                             Total Interest
                         </td>
-                        <td class="text-lg font-bold text-right">$${totalInterest.toFixed(2)}</td>
+                        <td class="text-lg font-bold text-right">$${totalInterest.toFixed()}</td>
                     </tr>
                     <tr><td class="text-lg font-bold text-right">${pmiDetails}</td></tr>
                 </table>
@@ -105,13 +105,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="flex flex-col items-center text-center">
                         <i class="fas fa-dollar-sign text-green-500 mb-1"></i>
                         <span class="text-sm font-semibold text-gray-700">Interest Savings</span>
-                        <span class="inline-flex items-center rounded-md bg-green-100 px-2 py-1 text-xs font-bold text-black">$${interestSavings.toFixed(2)}</span>
+                        <span class="inline-flex items-center rounded-md bg-green-100 px-2 py-1 text-xs font-bold text-black">$${interestSavings.toFixed()}</span>
                     </div>
 
                     <div class="flex flex-col items-center text-center">
                         <i class="fas fa-arrow-up text-red-500 mb-1"></i>
                         <span class="text-sm font-semibold text-gray-700">Monthly Payment Increase</span>
-                        <span class="inline-flex items-center rounded-md bg-red-100 px-2 py-1 text-xs font-bold text-black">$${paymentIncrease.toFixed(2)}</span>
+                        <span class="inline-flex items-center rounded-md bg-red-100 px-2 py-1 text-xs font-bold text-black">$${paymentIncrease.toFixed()}</span>
                     </div>
                 </div>
 
@@ -122,12 +122,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="grid grid-cols-2 gap-3">
                             <div class="border-l-4 border-blue-500 pl-2">
                                 <p class="text-sm font-semibold text-gray-700">Principal:</p>
-                                <p class="text-lg font-bold text-gray-900">$${monthlyPrincipal.toFixed(2)}</p>
+                                <p class="text-lg font-bold text-gray-900">$${monthlyPrincipal.toFixed()}</p>
                             </div>
 
                             <div class="border-l-4 border-red-500 pl-2">
                                 <p class="text-sm font-semibold text-gray-700">Interest:</p>
-                                <p class="text-lg font-bold text-gray-900">$${monthlyInterest.toFixed(2)}</p>
+                                <p class="text-lg font-bold text-gray-900">$${monthlyInterest.toFixed()}</p>
                             </div>
                         </div>
                     </div>
@@ -143,10 +143,6 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     </div>
 </div>
-
-    
-    
-
     `;
     }
 
